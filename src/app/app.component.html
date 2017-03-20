@@ -1,3 +1,39 @@
-<h1>
-  {{title}}
-</h1>
+<div class="top-bar">
+    <div class="row">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">Higiene de mãos</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="large-12 columns">
+        <div *ngIf="activities">
+            <table>
+                <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Profissional</th>
+                    <th>Ocorrencia</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let activities of activity">
+                    <td>{{activity.created_at}}</td>
+                    <td>{{activity.professional_type}}</td>
+                    <td>{{activity.description}}</td>
+                    <td>
+                        <button class="button" (click)="changeState('extend', activity.key)">Detalhes</button>
+                        <button class="button secondary">Editar</button>
+                        <button class="button alert">Apagar</button>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
